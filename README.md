@@ -24,3 +24,12 @@ Notes:
 
 
 Follow Tutorial at https://medium.com/@pamit/building-a-restful-backend-with-elixir-phoenix-84fe390975c
+
+
+
+
+
+Commands:
+
+mix help | grep phx   - Check list of generators
+mix phx.routes        - Check list of routes

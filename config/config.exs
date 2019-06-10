@@ -5,6 +5,11 @@
 # is restricted to this project.
 use Mix.Config
 
+
+config :busi_api, BusiApiWeb.Auth.Guardian,
+  issuer: "busi_api",
+  secret_key: "0QZ9rVDwVrbdD6fi3d1g9L6QCVNjBFRcv1ZgEYW7hqFFN3mJWOnrjVVmGXXpE2TI"
+
 # General application configuration
 config :busi_api,
   ecto_repos: [BusiApi.Repo]
@@ -21,6 +26,8 @@ config :busi_api, BusiApiWeb.Endpoint,
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:user_id]
+
+
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
