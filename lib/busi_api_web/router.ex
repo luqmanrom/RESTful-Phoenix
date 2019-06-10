@@ -5,14 +5,23 @@ defmodule BusiApiWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :auth do
+    plug BusiApiWeb.Auth.Pipeline
+  end
+
   scope "/api", BusiApiWeb do
     pipe_through :api
 
-    resources "/businesses", BusinessController, except: [:new, :edit]
     post "/users/signup", UserController, :create
     post "/users/signin", UserController, :signin
 
 
+  end
+
+  scope "/api", BusiApiWeb do
+    pipe_through [:api, :auth]
+
+    resources "/businesses", BusinessController, except: [:new, :edit]
   end
 
   pipeline :browser do
